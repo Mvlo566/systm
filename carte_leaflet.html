@@ -1,53 +1,387 @@
-import folium
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3003ed8acbf9cec01517567e69112458 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3003ed8acbf9cec01517567e69112458" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3003ed8acbf9cec01517567e69112458 = L.map(
+                "map_3003ed8acbf9cec01517567e69112458",
+                {
+                    center: [48.8566, 2.3522],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-# Créer une carte de base
-mymap = folium.Map(location=[48.8566, 2.3522], zoom_start=13)
+            
 
-# Ajouter des couches de tuiles
-folium.TileLayer(
-    tiles='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ',
-    attr='© OpenStreetMap contributors, © Mapbox',
-    name='Rues'
-).add_to(mymap)
+        
+    
+            var tile_layer_5c5e6c9a0d726b4438995f579fcae7e1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_5c5e6c9a0d726b4438995f579fcae7e1.addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var tile_layer_a70c567cd98892382e4a29526caac4b1 = L.tileLayer(
+                "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ",
+                {"attribution": "\u00a9 OpenStreetMap contributors, \u00a9 Mapbox", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_a70c567cd98892382e4a29526caac4b1.addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var tile_layer_b60b5b5252076de5a125fb18b79b11e0 = L.tileLayer(
+                "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ",
+                {"attribution": "\u00a9 OpenStreetMap contributors, \u00a9 Mapbox", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_b60b5b5252076de5a125fb18b79b11e0.addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var layer_control_3a0c50b27ed323efefd98506304f328f_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_5c5e6c9a0d726b4438995f579fcae7e1,
+                    "Rues" : tile_layer_a70c567cd98892382e4a29526caac4b1,
+                    "Satellite" : tile_layer_b60b5b5252076de5a125fb18b79b11e0,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_3a0c50b27ed323efefd98506304f328f = L.control.layers(
+                layer_control_3a0c50b27ed323efefd98506304f328f_layers.base_layers,
+                layer_control_3a0c50b27ed323efefd98506304f328f_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
 
-folium.TileLayer(
-    tiles='https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ',
-    attr='© OpenStreetMap contributors, © Mapbox',
-    name='Satellite'
-).add_to(mymap)
+        
+    
+            var marker_b5480b4baf783e032f2f16edbcdb0539 = L.marker(
+                [48.8584, 2.2943],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_43063dbf94f464d6ae8d918e8bcac463 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_b5480b4baf783e032f2f16edbcdb0539.setIcon(icon_43063dbf94f464d6ae8d918e8bcac463);
+        
+    
+        var popup_e79a94e7c66d0a55ee0195bc8fc3d2a8 = L.popup({"maxWidth": 300});
 
-folium.LayerControl().add_to(mymap)
+        
+            
+                var html_04b218cdd4cc8a5697f5662ac5ce880e = $(`<div id="html_04b218cdd4cc8a5697f5662ac5ce880e" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Tour Eiffel</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8584, 2.2943]<br>             <div style="padding-bottom: 15px;">La Tour Eiffel est un symbole de Paris.</div>             <img src="https://www.frenchmomentsblog.com/wp-content/uploads/2011/10/P1180958.jpg" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_e79a94e7c66d0a55ee0195bc8fc3d2a8.setContent(html_04b218cdd4cc8a5697f5662ac5ce880e);
+            
+        
 
-# Ajouter des marqueurs avec popups centrées (points d'origine)
-donnees_marqueurs = [
-    {'coordinates': [48.8584, 2.2943], 'nom': 'Tour Eiffel', 'description': 'La Tour Eiffel est un symbole de Paris.', 'image_url': 'https://www.frenchmomentsblog.com/wp-content/uploads/2011/10/P1180958.jpg'},
-    {'coordinates': [48.8606, 2.3376], 'nom': 'Musée du Louvre', 'description': 'Le Louvre est le plus grand musée du monde.', 'image_url': 'https://www.tripsavvy.com/thmb/6o6axAHX5zcNpvVWcErvgFKaitg=/5472x3648/filters:fill(auto,1)/LouvresengchyeteoGettyImages-5a14669aaad52b00370c599e.jpg'},
-    {'coordinates': [48.8529, 2.3504], 'nom': 'Cathédrale Notre-Dame', 'description': 'Notre-Dame est une cathédrale gothique célèbre.', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Notre-Dame_de_Paris_2013-07-24.jpg/420px-Notre-Dame_de_Paris_2013-07-24.jpg'},
-    {'coordinates': [48.8867, 2.3431], 'nom': 'Basilique du Sacré-Cœur', 'description': 'La Basilique du Sacré-Cœur domine Montmartre.', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sacr%C3%A9_Coeur_Fa%C3%A7ade_1.jpg/420px-Sacr%C3%A9_Coeur_Fa%C3%A7ade_1.jpg'},
-    {'coordinates': [48.8461, 2.3468], 'nom': 'Panthéon', 'description': 'Le Panthéon est un monument néo-classique.', 'image_url': 'https://via.placeholder.com/150'},
-    {'coordinates': [48.8599, 2.3266], 'nom': "Musée d'Orsay", 'description': 'Le Musée d\'Orsay abrite des œuvres impressionnistes.', 'image_url': 'https://via.placeholder.com/150'},
-    {'coordinates': [48.8584, 2.3187], 'nom': 'Seine', 'description': 'La Seine est un fleuve traversant Paris.', 'image_url': 'https://via.placeholder.com/150'},
-    {'coordinates': [48.8842, 2.3325], 'nom': 'Montmartre', 'description': 'Montmartre est un quartier artistique.', 'image_url': 'https://via.placeholder.com/150'},
-    # Ajouter d'autres points au besoin
-]
+        marker_b5480b4baf783e032f2f16edbcdb0539.bindPopup(popup_e79a94e7c66d0a55ee0195bc8fc3d2a8)
+        ;
 
-for data in donnees_marqueurs:
-    html_popup = f"""
-        <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">
-            <b style="font-size: 16px;">{data['nom']}</b><br>
-            <hr style="background-color: white; height: 2px;">
-            Coordonnées: {data['coordinates']}<br>
-            <div style="padding-bottom: 15px;">{data['description']}</div>
-            <img src="{data['image_url']}" alt="Image" style="max-width: 100%; border-radius: 5px;">
-        </div>
-    """
+        
+    
+    
+            marker_b5480b4baf783e032f2f16edbcdb0539.bindTooltip(
+                `<div>
+                     Tour Eiffel
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a91db5d46065ad83e1ca51bdb45edf01 = L.marker(
+                [48.8606, 2.3376],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_1061cd8a0f023322a48cdccb96761e82 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_a91db5d46065ad83e1ca51bdb45edf01.setIcon(icon_1061cd8a0f023322a48cdccb96761e82);
+        
+    
+        var popup_1843f0ebede12a5c41d61512f8079d5d = L.popup({"maxWidth": 300});
 
-    folium.Marker(
-        location=data['coordinates'],
-        popup=folium.Popup(html_popup, max_width=300),
-        tooltip=data['nom'],
-        icon=folium.Icon(icon='fi fi-sr-marker', prefix='custom', color='purple')
-    ).add_to(mymap)
+        
+            
+                var html_a1861abc86ab0ee6390f83d98f320d14 = $(`<div id="html_a1861abc86ab0ee6390f83d98f320d14" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Musée du Louvre</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8606, 2.3376]<br>             <div style="padding-bottom: 15px;">Le Louvre est le plus grand musée du monde.</div>             <img src="https://www.tripsavvy.com/thmb/6o6axAHX5zcNpvVWcErvgFKaitg=/5472x3648/filters:fill(auto,1)/LouvresengchyeteoGettyImages-5a14669aaad52b00370c599e.jpg" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_1843f0ebede12a5c41d61512f8079d5d.setContent(html_a1861abc86ab0ee6390f83d98f320d14);
+            
+        
 
-# Enregistrer la carte en tant que fichier HTML
-mymap.save('carte_leaflet.html')
+        marker_a91db5d46065ad83e1ca51bdb45edf01.bindPopup(popup_1843f0ebede12a5c41d61512f8079d5d)
+        ;
+
+        
+    
+    
+            marker_a91db5d46065ad83e1ca51bdb45edf01.bindTooltip(
+                `<div>
+                     Musée du Louvre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb2fb49eb3a367403dadd5aaf4294e7c = L.marker(
+                [48.8529, 2.3504],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_c03583d8187c201b56f28e06e4016714 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_fb2fb49eb3a367403dadd5aaf4294e7c.setIcon(icon_c03583d8187c201b56f28e06e4016714);
+        
+    
+        var popup_f860eea09be3aaab3a8b3aa90ed0067d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2043889bd8b8b50d252137e58a3a6eb5 = $(`<div id="html_2043889bd8b8b50d252137e58a3a6eb5" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Cathédrale Notre-Dame</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8529, 2.3504]<br>             <div style="padding-bottom: 15px;">Notre-Dame est une cathédrale gothique célèbre.</div>             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Notre-Dame_de_Paris_2013-07-24.jpg/420px-Notre-Dame_de_Paris_2013-07-24.jpg" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_f860eea09be3aaab3a8b3aa90ed0067d.setContent(html_2043889bd8b8b50d252137e58a3a6eb5);
+            
+        
+
+        marker_fb2fb49eb3a367403dadd5aaf4294e7c.bindPopup(popup_f860eea09be3aaab3a8b3aa90ed0067d)
+        ;
+
+        
+    
+    
+            marker_fb2fb49eb3a367403dadd5aaf4294e7c.bindTooltip(
+                `<div>
+                     Cathédrale Notre-Dame
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_415ee033bcdb3719344ee76abac97b73 = L.marker(
+                [48.8867, 2.3431],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_3a858470b8560f42687491cf1cf09970 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_415ee033bcdb3719344ee76abac97b73.setIcon(icon_3a858470b8560f42687491cf1cf09970);
+        
+    
+        var popup_4e5685cbe79825319178f9e9e3b37603 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e39cc34cd190dc381c6066b2f4fc9046 = $(`<div id="html_e39cc34cd190dc381c6066b2f4fc9046" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Basilique du Sacré-Cœur</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8867, 2.3431]<br>             <div style="padding-bottom: 15px;">La Basilique du Sacré-Cœur domine Montmartre.</div>             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sacr%C3%A9_Coeur_Fa%C3%A7ade_1.jpg/420px-Sacr%C3%A9_Coeur_Fa%C3%A7ade_1.jpg" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_4e5685cbe79825319178f9e9e3b37603.setContent(html_e39cc34cd190dc381c6066b2f4fc9046);
+            
+        
+
+        marker_415ee033bcdb3719344ee76abac97b73.bindPopup(popup_4e5685cbe79825319178f9e9e3b37603)
+        ;
+
+        
+    
+    
+            marker_415ee033bcdb3719344ee76abac97b73.bindTooltip(
+                `<div>
+                     Basilique du Sacré-Cœur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bce69739b765595071242ecd764f5165 = L.marker(
+                [48.8461, 2.3468],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_42a40b29bd05ebc8ad0f0da0a38817a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_bce69739b765595071242ecd764f5165.setIcon(icon_42a40b29bd05ebc8ad0f0da0a38817a4);
+        
+    
+        var popup_e3b63256d6a153b945ff40d049f99939 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_366046811aeb44b6fa7f926ba8188832 = $(`<div id="html_366046811aeb44b6fa7f926ba8188832" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Panthéon</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8461, 2.3468]<br>             <div style="padding-bottom: 15px;">Le Panthéon est un monument néo-classique.</div>             <img src="https://via.placeholder.com/150" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_e3b63256d6a153b945ff40d049f99939.setContent(html_366046811aeb44b6fa7f926ba8188832);
+            
+        
+
+        marker_bce69739b765595071242ecd764f5165.bindPopup(popup_e3b63256d6a153b945ff40d049f99939)
+        ;
+
+        
+    
+    
+            marker_bce69739b765595071242ecd764f5165.bindTooltip(
+                `<div>
+                     Panthéon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c1743bd5b5776bee37c153632097bba6 = L.marker(
+                [48.8599, 2.3266],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_032f9807330834046957f8c8fa5a1d8a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_c1743bd5b5776bee37c153632097bba6.setIcon(icon_032f9807330834046957f8c8fa5a1d8a);
+        
+    
+        var popup_4c5cc1abe754e1d74e76131d68c4b2b2 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_19224064a47a5deb0db03cab4f47984c = $(`<div id="html_19224064a47a5deb0db03cab4f47984c" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Musée d'Orsay</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8599, 2.3266]<br>             <div style="padding-bottom: 15px;">Le Musée d'Orsay abrite des œuvres impressionnistes.</div>             <img src="https://via.placeholder.com/150" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_4c5cc1abe754e1d74e76131d68c4b2b2.setContent(html_19224064a47a5deb0db03cab4f47984c);
+            
+        
+
+        marker_c1743bd5b5776bee37c153632097bba6.bindPopup(popup_4c5cc1abe754e1d74e76131d68c4b2b2)
+        ;
+
+        
+    
+    
+            marker_c1743bd5b5776bee37c153632097bba6.bindTooltip(
+                `<div>
+                     Musée d'Orsay
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_14b78f4a0be1048bc6713ba41324699e = L.marker(
+                [48.8584, 2.3187],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_cb1371d3e55d1bd1736d1339a467cbb8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_14b78f4a0be1048bc6713ba41324699e.setIcon(icon_cb1371d3e55d1bd1736d1339a467cbb8);
+        
+    
+        var popup_140a9093f66e403119d7274f61f7e7b0 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_928534c25cb217fe2df8876ea41bb92a = $(`<div id="html_928534c25cb217fe2df8876ea41bb92a" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Seine</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8584, 2.3187]<br>             <div style="padding-bottom: 15px;">La Seine est un fleuve traversant Paris.</div>             <img src="https://via.placeholder.com/150" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_140a9093f66e403119d7274f61f7e7b0.setContent(html_928534c25cb217fe2df8876ea41bb92a);
+            
+        
+
+        marker_14b78f4a0be1048bc6713ba41324699e.bindPopup(popup_140a9093f66e403119d7274f61f7e7b0)
+        ;
+
+        
+    
+    
+            marker_14b78f4a0be1048bc6713ba41324699e.bindTooltip(
+                `<div>
+                     Seine
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ca8b8407ce3d60258e3a4d931198b0e7 = L.marker(
+                [48.8842, 2.3325],
+                {}
+            ).addTo(map_3003ed8acbf9cec01517567e69112458);
+        
+    
+            var icon_d806fab3478695a166febdce007f360d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
+            );
+            marker_ca8b8407ce3d60258e3a4d931198b0e7.setIcon(icon_d806fab3478695a166febdce007f360d);
+        
+    
+        var popup_ad534843fe6ca28cf3153d059a38c0de = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_634e686290d77d62e8aba23d20e36933 = $(`<div id="html_634e686290d77d62e8aba23d20e36933" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Montmartre</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8842, 2.3325]<br>             <div style="padding-bottom: 15px;">Montmartre est un quartier artistique.</div>             <img src="https://via.placeholder.com/150" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
+                popup_ad534843fe6ca28cf3153d059a38c0de.setContent(html_634e686290d77d62e8aba23d20e36933);
+            
+        
+
+        marker_ca8b8407ce3d60258e3a4d931198b0e7.bindPopup(popup_ad534843fe6ca28cf3153d059a38c0de)
+        ;
+
+        
+    
+    
+            marker_ca8b8407ce3d60258e3a4d931198b0e7.bindTooltip(
+                `<div>
+                     Montmartre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
