@@ -1,125 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_05e34b12e7e52a9fa8056806143695d3 {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            </style>
-        
-</head>
-<body>
-    
-    
-            <div class="folium-map" id="map_05e34b12e7e52a9fa8056806143695d3" ></div>
-        
-</body>
-<script>
-    
-    
-            var map_05e34b12e7e52a9fa8056806143695d3 = L.map(
-                "map_05e34b12e7e52a9fa8056806143695d3",
-                {
-                    center: [48.8566, 2.3522],
-                    crs: L.CRS.EPSG3857,
-                    zoom: 13,
-                    zoomControl: true,
-                    preferCanvas: false,
-                }
-            );
+import folium
 
-            
+# Créer une carte de base
+mymap = folium.Map(location=[48.8566, 2.3522], zoom_start=13)
 
-        
-    
-            var tile_layer_c84a5c46479fdbe9555d77dc7800aabe = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            );
-        
-    
-            tile_layer_c84a5c46479fdbe9555d77dc7800aabe.addTo(map_05e34b12e7e52a9fa8056806143695d3);
-        
-    
-            var tile_layer_8a8a2d831465e4f3031555eb1a35e3c4 = L.tileLayer(
-                "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ",
-                {"attribution": "\u00a9 OpenStreetMap contributors, \u00a9 Mapbox", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            );
-        
-    
-            tile_layer_8a8a2d831465e4f3031555eb1a35e3c4.addTo(map_05e34b12e7e52a9fa8056806143695d3);
-        
-    
-            var tile_layer_821f8a8dd52da48412427750558939f7 = L.tileLayer(
-                "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ",
-                {"attribution": "\u00a9 OpenStreetMap contributors, \u00a9 Mapbox", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            );
-        
-    
-            tile_layer_821f8a8dd52da48412427750558939f7.addTo(map_05e34b12e7e52a9fa8056806143695d3);
-        
-    
-            var marker_bd870a30014306f812cbe1cdf33838c6 = L.marker(
-                [48.8584, 2.2943],
-                {}
-            ).addTo(map_05e34b12e7e52a9fa8056806143695d3);
-        
-    
-            var icon_f19e9f539fc5b08f9a01611cda11af95 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "fi fi-sr-marker", "iconColor": "white", "markerColor": "purple", "prefix": "custom"}
-            );
-            marker_bd870a30014306f812cbe1cdf33838c6.setIcon(icon_f19e9f539fc5b08f9a01611cda11af95);
-        
-    
-        var popup_aafed947b03aa50549af463c3ffbb693 = L.popup({"maxWidth": 300});
+# Ajouter des couches de tuiles
+folium.TileLayer(
+    tiles='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ',
+    attr='© OpenStreetMap contributors, © Mapbox',
+    name='Rues'
+).add_to(mymap)
 
-        
-            
-                var html_d5df175a111c8ddf14c8b3aef90070e5 = $(`<div id="html_d5df175a111c8ddf14c8b3aef90070e5" style="width: 100.0%; height: 100.0%;">         <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">             <b style="font-size: 16px;">Tour Eiffel</b><br>             <hr style="background-color: white; height: 2px;">             Coordonnées: [48.8584, 2.2943]<br>             <div style="padding-bottom: 15px;">La Tour Eiffel est un symbole de Paris.</div>             <img src="https://www.frenchmomentsblog.com/wp-content/uploads/2011/10/P1180958.jpg" alt="Image" style="max-width: 100%; border-radius: 5px;">         </div>     </div>`)[0];
-                popup_aafed947b03aa50549af463c3ffbb693.setContent(html_d5df175a111c8ddf14c8b3aef90070e5);
-            
-        
+folium.TileLayer(
+    tiles='https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXZsbyIsImEiOiJjbG9vdnp0aWowNHRqMm5xbHI1eTE4YTJpIn0.zr9olnEneP7Hf3lM3W26iQ',
+    attr='© OpenStreetMap contributors, © Mapbox',
+    name='Satellite'
+).add_to(mymap)
 
-        marker_bd870a30014306f812cbe1cdf33838c6.bindPopup(popup_aafed947b03aa50549af463c3ffbb693)
-        ;
+folium.LayerControl().add_to(mymap)
 
-        
-    
-    
-            marker_bd870a30014306f812cbe1cdf33838c6.bindTooltip(
-                `<div>
-                     Tour Eiffel
-                 </div>`,
-                {"sticky": true}
-            );
-        
-</script>
-</html>
+# Ajouter des marqueurs avec popups centrées (points d'origine)
+donnees_marqueurs = [
+    {'coordinates': [48.8584, 2.2943], 'nom': 'Tour Eiffel', 'description': 'La Tour Eiffel est un symbole de Paris.', 'image_url': 'https://www.frenchmomentsblog.com/wp-content/uploads/2011/10/P1180958.jpg'},
+    {'coordinates': [48.8606, 2.3376], 'nom': 'Musée du Louvre', 'description': 'Le Louvre est le plus grand musée du monde.', 'image_url': 'https://www.tripsavvy.com/thmb/6o6axAHX5zcNpvVWcErvgFKaitg=/5472x3648/filters:fill(auto,1)/LouvresengchyeteoGettyImages-5a14669aaad52b00370c599e.jpg'},
+    {'coordinates': [48.8529, 2.3504], 'nom': 'Cathédrale Notre-Dame', 'description': 'Notre-Dame est une cathédrale gothique célèbre.', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Notre-Dame_de_Paris_2013-07-24.jpg/420px-Notre-Dame_de_Paris_2013-07-24.jpg'},
+    {'coordinates': [48.8867, 2.3431], 'nom': 'Basilique du Sacré-Cœur', 'description': 'La Basilique du Sacré-Cœur domine Montmartre.', 'image_url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sacr%C3%A9_Coeur_Fa%C3%A7ade_1.jpg/420px-Sacr%C3%A9_Coeur_Fa%C3%A7ade_1.jpg'},
+    {'coordinates': [48.8461, 2.3468], 'nom': 'Panthéon', 'description': 'Le Panthéon est un monument néo-classique.', 'image_url': 'https://via.placeholder.com/150'},
+    {'coordinates': [48.8599, 2.3266], 'nom': "Musée d'Orsay", 'description': 'Le Musée d\'Orsay abrite des œuvres impressionnistes.', 'image_url': 'https://via.placeholder.com/150'},
+    {'coordinates': [48.8584, 2.3187], 'nom': 'Seine', 'description': 'La Seine est un fleuve traversant Paris.', 'image_url': 'https://via.placeholder.com/150'},
+    {'coordinates': [48.8842, 2.3325], 'nom': 'Montmartre', 'description': 'Montmartre est un quartier artistique.', 'image_url': 'https://via.placeholder.com/150'},
+    # Ajouter d'autres points au besoin
+]
+
+for data in donnees_marqueurs:
+    html_popup = f"""
+        <div style="background-color: #3498db; color: white; padding: 10px; text-align: center; border-radius: 5px;">
+            <b style="font-size: 16px;">{data['nom']}</b><br>
+            <hr style="background-color: white; height: 2px;">
+            Coordonnées: {data['coordinates']}<br>
+            <div style="padding-bottom: 15px;">{data['description']}</div>
+            <img src="{data['image_url']}" alt="Image" style="max-width: 100%; border-radius: 5px;">
+        </div>
+    """
+
+    folium.Marker(
+        location=data['coordinates'],
+        popup=folium.Popup(html_popup, max_width=300),
+        tooltip=data['nom'],
+        icon=folium.Icon(icon='fi fi-sr-marker', prefix='custom', color='purple')
+    ).add_to(mymap)
+
+# Enregistrer la carte en tant que fichier HTML
+mymap.save('carte_leaflet.html')
