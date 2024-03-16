@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Carte Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #mapid {
+            flex: 3;
+            height: 100%;
+        }
+        #info-box {
+            flex: 1;
+            background-color: rgb(232, 251, 255);
+            border-left: 1px solid #ffffff;
+            box-shadow: 0 0 10px rgba(145, 145, 145, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'San Francisco', sans-serif;
+            border: 2px solid rgb(170, 170, 170); /* Ajoutez cette ligne */
+        }
+
+        .custom-icon .fas {
+            font-size: 30px; /* Adaptez cette valeur à la taille de votre icône */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="mapid"></div>
+    <div id="info-box" class="rounded-box">
+        <h2>Mon Marqueur</h2>
+        <p>Ceci est un marqueur personnalisé.</p>
+        <p>Latitude : <span id="latitude"></span></p>
+        <p>Longitude : <span id="longitude"></span></p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('mapid').setView([48.0, -2.0], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+                // Créez un nouveau contrôle Leaflet
+        var logoControl = L.control({position: 'bottomleft'});
+
+        logoControl.onAdd = function(map) {
+            // Créez un div pour le logo
+            var div = L.DomUtil.create('div', 'logo');
+
+            // Ajoutez votre logo. Remplacez 'logo.png' par le chemin de votre logo
+            div.innerHTML = '<img src="https://centralmap.fr/wp-content/uploads/2024/03/cropped-Picsart_24-03-07_13-28-33-733-2-158x110.png" alt="Logo" style="width: 100px;">';
+
+            return div;
+        };
+
+        logoControl.addTo(map);
+
+        var markers = [
+            { lat: 48.0, lng: -2.0, nom: 'Point A', description: 'Ceci est un point d\'intérêt.' },
+            { lat: 48.1, lng: -2.1, nom: 'Point B', description: 'Un autre point d\'intérêt.' },
+            // Ajoutez plus de marqueurs ici...
+        ];
+
+        // Créez un icône personnalisé Leaflet en utilisant l'icône FontAwesome
+        var customIcon = L.divIcon({
+            className: 'custom-icon', // Vous pouvez utiliser cette classe pour styliser l'icône dans votre CSS
+            html: '<i class="fas fa-map-marker"></i>', // Utilisez l'icône FontAwesome que vous voulez
+        });
+
+
+        markers.forEach(function (markerInfo) {
+            var marker = L.marker([markerInfo.lat, markerInfo.lng], {icon: customIcon}).addTo(map);
+            marker.bindPopup(markerInfo.nom);
+
+            marker.on('click', function (e) {
+                // Création du contenu HTML
+                var htmlContent = `
+                    <h2>${markerInfo.nom}</h2>
+                    <p>${markerInfo.description}</p>
+                    <p>Latitude : <span id="latitude">${e.latlng.lat.toFixed(6)}</span></p>
+                    <p>Longitude : <span id="longitude">${e.latlng.lng.toFixed(6)}</span></p>
+                `;
+
+                // Ajout du contenu HTML à la boîte d'information
+                var infoBox = document.getElementById('info-box');
+                infoBox.innerHTML = htmlContent;
+            });
+        });
+
+        
+    </script>
+</body>
+</html>
